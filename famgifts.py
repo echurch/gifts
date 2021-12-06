@@ -7,7 +7,7 @@ fam = []
 fam.append(np.array(["Tom","Laura"]))
 fam.append(np.array(["Andrea","Eric","Will","Emma"]))
 fam.append(np.array(["Brian","Jolie","Bode","Gunnar"]))
-
+fam.append(np.array(["Geran","Olivia"]))
 
 totfam = sum([len(element) for element in fam])
 
@@ -22,7 +22,7 @@ for ii in range(len(fam)):
 print ("\n")
 
 nmaxgiver = 20
-nmaxeffort = 60
+nmaxeffort = 260
 neffort = 0
 goodpairs = False
 paired = {}
@@ -50,11 +50,11 @@ while (not goodpairs):
     # check if paired is proper length and non-empty. If so:    
     if len(paired) is totfam:
         goodpairs = True
-        # Finally, make sure no one is giving to someone giving back to them.
+        # Finally, make sure no one is giving to someone giving right back to them.
         for key,value in paired.items():
             for key2,value2 in paired.items():
                 if key2 is key:
-                    break
+                    continue
                 if key is value2 and value is key2:
                     goodpairs = False
                     break
@@ -70,3 +70,5 @@ if goodpairs is True:
     print("Proposed gifters=>giftees " )
     for key,value in paired.items():
         print(key, '=>', value)
+
+
